@@ -53,5 +53,11 @@ chtrigram=list2trigram(chlist)
 ## 印出 bigram trigram 頻率
 bigramfreqdict=bigram2freqdict(chbigram)
 trigramfreqdict=trigram2freqdict(chtrigram)
-print(bigramfreqdict)
-print(trigramfreqdict)
+# print(bigramfreqdict)
+# print(trigramfreqdict)
+
+## 進行排序並取出前五筆
+bigramfreqsorted=sorted(bigramfreqdict.items(), key=itemgetter(1), reverse=True)
+trigramfreqsorted=sorted(trigramfreqdict.items(), key=itemgetter(1), reverse=True)
+print(bigramfreqsorted[:5])
+print(trigramfreqsorted[:5])
