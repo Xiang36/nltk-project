@@ -1,4 +1,4 @@
-
+from operator import itemgetter
 def list2freqdict(mylist):
     mydict=dict()
     for ch in mylist:
@@ -10,3 +10,5 @@ chlist=[ch for ch in sentence]
 
 print(chlist)
 chfreqdict=list2freqdict(chlist)
+chfreqsorted=sorted(chfreqdict.items(),key=itemgetter(1),reverse=True)
+print(chfreqsorted)
