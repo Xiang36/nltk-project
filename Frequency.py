@@ -6,13 +6,19 @@ def list2freqdict(mylist):
         mydict[ch]=mydict.get(ch,0)+1
     return mydict
 
+def list2bigram(mylist):
+    return [mylist[i:i+2] for i in range(0,len(mylist)-1)]
+
+def list2trigram(mylist):
+    return [mylist[i:i+3] for i in range(0,len(mylist)-2)]
+
 sentence='吃葡萄不吐葡萄皮，不吃葡萄倒吐葡萄皮。'
 chlist=[ch for ch in sentence]
 
-print(chlist)
+# print(chlist)
 chfreqdict=list2freqdict(chlist)
 chfreqsorted=sorted(chfreqdict.items(),key=itemgetter(1),reverse=True)
-print(chfreqsorted)
+# print(chfreqsorted)
 
 # 限定印出前幾個最高次數的字及次數
 ## 僅印出前五個
@@ -23,5 +29,11 @@ for (ch,num) in chfreqsorted:
     if num > 1:
         chfreqsorted3.append((ch,num))
 
-print(chfreqsorted2)
-print(chfreqsorted3)
+# print(chfreqsorted2)
+# print(chfreqsorted3)
+
+
+chbigram=list2bigram(chlist)
+chtrigram=list2trigram(chlist)
+print(chbigram)
+print(chtrigram)
